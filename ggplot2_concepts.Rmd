@@ -50,7 +50,7 @@ bikes_df <- read_csv(file.path("data", "london-bikes-custom.csv"),
 ```
 ## 1- Data 
 initiate an empty canvas
-```{r}
+```{r, echo=FALSE, fig.width=4, fig.height=3}
 ggplot(data = bikes_df)
 ```
 ## 2- Aesthetics
@@ -66,7 +66,6 @@ Maps data (variables) to the graph properties such as;
 ```{r, echo=FALSE, fig.width=4, fig.height=3}
 bikes_df %>%
   ggplot(aes(x = temp_feel, y = count))
-
 ```
 ## 3- Geometries
 Interpret data (aesthetics) as graphs.
@@ -81,7 +80,6 @@ Interpret data (aesthetics) as graphs.
 bikes_df %>%
   ggplot(aes(x = temp_feel, y = count)) +
   geom_point()
-
 ```
 we may add visual properties to the graph
 ```{r, echo=FALSE, fig.width=4, fig.height=3}
@@ -94,7 +92,6 @@ bikes_df %>%
     stroke = 1,
     size = 2
   )
-
 ```
 ### Mapping vs visual properties
 
@@ -109,7 +106,6 @@ ggplot(
     color = "#28a87d",
     alpha = .5
   )
-
 ```
  Visual properties
  
@@ -140,7 +136,7 @@ ggplot(
 
 ```{r}
 ggplot(
-    bikes,
+    bikes_df,
     aes(x = temp_feel, y = count,
         color = season)
   ) +
@@ -150,7 +146,7 @@ ggplot(
 ```
 ### DIV
 <div class='fluid-row'>
-<div class='col-md-6'>
+  <div class='col-md-6'>
 
 1st column when browser is wide
 
@@ -164,8 +160,8 @@ ggplot(
     alpha = .5
   )
 ```
-</div>
-<div class='col-md-6'>
+  </div>
+  <div class='col-md-6'>
 
 ... 2nd column when browser is wide
 
@@ -178,9 +174,92 @@ ggplot(
     aes(color = temp_feel > 20),
     alpha = .5
   )
+```
+  </div>
 
+</div>
+# DIV format
+<div class='fluid-row'>
+<div class='col-md-6'>
+  1st column code
+```{r}
+ggplot(
+    bikes_df,
+    aes(x = temp_feel, y = count,
+        color = season)
+  ) +
+  geom_point(
+    alpha = .5
+  )
+```
+  
+</div>
+<div class='col-md-6'>
+  2st column code
+```{r}
+ggplot(
+    bikes_df,
+    aes(x = temp_feel, y = count,
+        color = season)
+  ) +
+  geom_point(
+    alpha = .5
+  )
+```
+  
+</div>
+</div>
+
+<div class='fluid-row'>
+<div class='col-md-6'>
+  1st column plot
+```{r echo=FALSE}
+ggplot(
+    bikes_df,
+    aes(x = temp_feel, y = count,
+        color = season)
+  ) +
+  geom_point(
+    alpha = .5
+  )
 ```
 
 </div>
-
+<div class='col-md-6'>
+  2st column plot
+```{r echo=FALSE}
+ggplot(
+    bikes_df,
+    aes(x = temp_feel, y = count,
+        color = season)
+  ) +
+  geom_point(
+    alpha = .5
+  )
+```
+  
 </div>
+</div>
+# END
+
+```{r echo=FALSE}
+ggplot(
+    bikes_df,
+    aes(x = temp_feel, y = count,
+        color = season)
+  ) +
+  geom_point(
+    alpha = .5
+  )
+```
+
+```{r echo=FALSE}
+ggplot(
+    bikes_df,
+    aes(x = temp_feel, y = count)
+  ) +
+  geom_point(
+    alpha = .5
+  )
+```
+
