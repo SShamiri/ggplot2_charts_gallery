@@ -1,0 +1,186 @@
+---
+title: "Concepts of ggplot2"
+output: html_notebook
+---
+
+# Loading packages
+
+```{r}
+packages <- c(
+    "tidyverse",
+    "ggplot2"
+)
+
+package_check <- lapply(
+  packages,
+  function(x) {
+    if (!require(x, character.only = TRUE)) {
+      install.packages(x, dependencies = TRUE)
+      library(x, character.only = TRUE)
+    }
+  }
+)
+```
+
+# The grammer of ggplot2
+```{r}
+tibble(
+Component = c("1-Data","2-Aesthetics", "3-Geometries", "4-Statistics", 
+              "5-Scales", "6-Coordinate System", "7-Facets", "8-Theames"), 
+Function =  c("ggplot(data)", "aes()", "gemo_*()", "stat_*()", "scale_*()", 
+              "coord_*()", "facet_*()", "theame_*()"),
+Description = c("The raw data you want to visualize",
+                "Aesthetic mappings between variables and visual properties", 
+                "The geometric shapes representing the data",
+                "The statistics transformation applied to the data",
+                "Maps between the data and the asesthetic dimmentions",
+                "Maps data into the plane of the data rectengle",
+                "The arrangement of the data into a grid of plots",
+                "The overall visiual of the garaph"
+                )
+)
+```
+# Load Data
+
+
+```{r}
+bikes_df <- read_csv(file.path("data", "london-bikes-custom.csv"),
+  col_types = "Dcfffilllddddc"
+)
+```
+## 1- Data 
+initiate an empty canvas
+```{r}
+ggplot(data = bikes_df)
+```
+## 2- Aesthetics
+Maps data (variables) to the graph properties such as;
+
+* positions(x,y)
+* colours(colours, fill)
+* shapes(shape, linetype)
+* size(size)
+* transparent(alpha)
+* groupings(group)
+
+```{r, echo=FALSE, fig.width=4, fig.height=3}
+bikes_df %>%
+  ggplot(aes(x = temp_feel, y = count))
+
+```
+## 3- Geometries
+Interpret data (aesthetics) as graphs.
+
+* points
+* lines
+* polygons
+* text labels
+* ...
+
+```{r, echo=FALSE, fig.width=4, fig.height=3}
+bikes_df %>%
+  ggplot(aes(x = temp_feel, y = count)) +
+  geom_point()
+
+```
+we may add visual properties to the graph
+```{r, echo=FALSE, fig.width=4, fig.height=3}
+bikes_df %>%
+  ggplot(aes(x = temp_feel, y = count)) +
+  geom_point(
+    color = "#2F005F",
+    alpha = .5,
+    shape = "X",
+    stroke = 1,
+    size = 2
+  )
+
+```
+### Mapping vs visual properties
+
+Mapping 
+
+```{r, echo=FALSE, fig.width=4, fig.height=3}
+ggplot(
+    bikes_df,
+    aes(x = temp_feel, y = count)
+  ) +
+  geom_point(
+    color = "#28a87d",
+    alpha = .5
+  )
+
+```
+ Visual properties
+ 
+```{r, echo=FALSE, fig.width=4, fig.height=3}
+ggplot(
+    bikes_df,
+    aes(x = temp_feel, y = count)
+  ) +
+  geom_point(
+    aes(color = season),
+    alpha = .5
+  )
+
+```
+### Mapping expresions
+
+```{r}
+ggplot(
+    bikes_df,
+    aes(x = temp_feel, y = count)
+  ) +
+  geom_point(
+    aes(color = temp_feel > 20),
+    alpha = .5
+  )
+```
+### Global vs Local
+
+```{r}
+ggplot(
+    bikes,
+    aes(x = temp_feel, y = count,
+        color = season)
+  ) +
+  geom_point(
+    alpha = .5
+  )
+```
+### DIV
+<div class='fluid-row'>
+<div class='col-md-6'>
+
+1st column when browser is wide
+
+```{r}
+ggplot(
+    bikes_df,
+    aes(x = temp_feel, y = count,
+        color = season)
+  ) +
+  geom_point(
+    alpha = .5
+  )
+```
+</div>
+<div class='col-md-6'>
+
+... 2nd column when browser is wide
+
+```{r}
+ggplot(
+    bikes_df,
+    aes(x = temp_feel, y = count)
+  ) +
+  geom_point(
+    aes(color = temp_feel > 20),
+    alpha = .5
+  )
+
+```
+
+</div>
+
+</div>
