@@ -34,13 +34,19 @@ edu_df <- tibble(
   mutate(edu = fct_reorder(edu,wage) )
 
 # 
+# plot_df <- edu_df %>% 
+#   pivot_longer(!edu, names_to = 'var', values_to = 'val') %>% 
+#   mutate(
+#     val_lab = ifelse(var == 'wage', str_c('$', format(val, big.mark = ',')), str_c(val, '%')),
+#     val = ifelse(var == "wage", val *-1/10^3 - mean(edu_df$ue), val)) # adjust to scale values
+
 plot_df <- edu_df %>% 
-  pivot_longer(!edu, names_to = 'var', values_to = 'val') %>% 
+  pivot_longer(!edu, names_to = 'var', values_to = 'val') %>%
+  group_by(var) %>% 
   mutate(
-    val_lab = ifelse(var == 'wage', str_c('$', val), str_c(val, '%')),
-    val = ifelse(var == "wage", val *-1/10^3 - mean(edu_df$ue), val)) # adjust to scale values
-
-
+    val_lab = ifelse(var == 'wage', str_c('$', format(val, big.mark = ',')), str_c(val, '%')),
+    val = val/sum(val) * 100
+  )
 ## wage bar-chart ----
 val_adj = (min(abs(plot_df$val)) + mean(edu_df$ue))*-1
 
@@ -114,7 +120,7 @@ plot_df %>%
                      ) +
   #theme_minimal(base_family = "Arial") +
   theme_minimal() +
-  guides(x = 'none') +
+  #guides(x = 'none') +
   theme(
         #text = element_text(color = "#4b0985"),
         panel.grid.major.y = element_blank(),
