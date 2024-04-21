@@ -10,7 +10,7 @@ packages <- c(
   "gghalves",
   "hrbrthemes",
   #"magick",     ## load images into R
-  "patchwork",  ## combine outputs from ggplot2
+#  "patchwork",  ## combine outputs from ggplot2
   "ggdist",     ## add uncertainity visualizations to ggplot2
   "ggforce",    ## add missing functionality to ggplot2
   "ggtext",     ## add improved text rendering to ggplot2
@@ -122,7 +122,10 @@ p2 <-
     caption = "Data: Gorman, Williams & Fraser (2014) *PLoS ONE* &bull; Illustration: Allison Horst"
   ) +
   theme(
-    panel.grid.major.x = element_line(size = .35),
+    panel.background = element_rect(fill="white"),
+    panel.grid.minor = element_blank(),
+    #panel.grid.major.x = element_line(size = .15, colour="grey50"),
+    #panel.grid.major.x = element_blank(),
     panel.grid.major.y = element_blank(),
     axis.text.y = element_text(size = 13),
     axis.ticks.length = unit(0, "lines"),

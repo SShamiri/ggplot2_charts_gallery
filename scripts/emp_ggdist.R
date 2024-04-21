@@ -64,7 +64,7 @@ plt <- df_emp %>%
     family = "Open Sans",
     fontface = "bold",
     size = 2.4,
-    nudge_y = .15
+    nudge_y = .1
   ) +
   geom_text(
     aes(x = max, label = glue::glue("n = {n}")),
@@ -91,20 +91,25 @@ plt <- df_emp %>%
   labs(
     x = "Employment",
     y = NULL,
-    subtitle = "Something to put here.",
-    caption = "Source: ABS Labour Force Survey "
+    title = "Employment by Education (*ASCED*)",
+    subtitle = "Sample of what can be done.",
+    caption = "Source: ABS Labour Force Survey\n Chart: Samuel Shamiri "
   ) +
-  theme(
-    panel.grid.major.x = element_line(size = .35),
-    panel.grid.major.y = element_blank(),
-    axis.text.y = element_text(size = 11),
-    axis.ticks.length = unit(0, "lines"),
-    plot.title.position = 'plot',
-    plot.subtitle = element_text(margin = margin(t = 5, b = 10)),
-    plot.margin = margin(10, 25, 10, 25)
-  )
+theme(
+  panel.background = element_rect(fill="white"),
+  panel.grid.minor = element_blank(),
+  panel.grid.major.x = element_line(size = .15, colour="grey50"),
+  #panel.grid.major.x = element_blank(),
+  panel.grid.major.y = element_blank(),
+  axis.text.y = element_text(size = 11),
+  axis.ticks.length = unit(0, "lines"),
+  plot.title.position = 'plot',
+  plot.subtitle = element_text(margin = margin(t = 5, b = 10)),
+  plot.margin = margin(10, 25, 10, 25)
+)
+
 plt
-ggsave("emp_dist_plot.png", width = 9, height = 5.2)
+#ggsave("emp_dist_plot.png", width = 9, height = 5.2)
 unlink("emp_dist_plot.pdf")
 #png("emp_dist_plot.png")
 #dev.off()
