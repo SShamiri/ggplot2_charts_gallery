@@ -1,0 +1,110 @@
+﻿asced_code,asced_name,level,attain2_name
+1,POSTGRADUATE DEGREE LEVEL,1,Postgraduate Degree
+10,POSTGRADUATE DEGREE LEVEL,2,Postgraduate Degree
+100,POSTGRADUATE DEGREE LEVEL,3,Postgraduate Degree
+11,Doctoral Degree Level,2,Postgraduate Degree
+110,Doctoral Degree Level,3,Postgraduate Degree
+111,Higher Doctorate,3,Postgraduate Degree
+112,Doctorate by Research,3,Postgraduate Degree
+113,Doctorate by Coursework,3,Postgraduate Degree
+114,Professional Specialist Qualification at Doctoral Degree Level,3,Postgraduate Degree
+115,Statement of Attainment at Doctoral Degree Level,3,Postgraduate Degree
+116,Bridging and Enabling Course at Doctoral Degree Level,3,Postgraduate Degree
+12,Master Degree Level,2,Postgraduate Degree
+120,Master Degree Level,3,Postgraduate Degree
+121,Master Degree by Research,3,Postgraduate Degree
+122,Master Degree by Coursework,3,Postgraduate Degree
+123,Professional Specialist Qualification at Master Degree Level,3,Postgraduate Degree
+124,Statement of Attainment at Master Degree Level,3,Postgraduate Degree
+125,Bridging and Enabling Course at Master Degree Level,3,Postgraduate Degree
+2,GRADUATE DIPLOMA AND GRADUATE CERTIFICATE LEVEL,1,Graduate Diploma
+20,GRADUATE DIPLOMA AND GRADUATE CERTIFICATE LEVEL,2,Graduate Diploma
+200,GRADUATE DIPLOMA AND GRADUATE CERTIFICATE LEVEL,3,Graduate Diploma
+21,Graduate Diploma Level,2,Graduate Diploma
+210,Graduate Diploma Level,3,Graduate Diploma
+211,Graduate Diploma,3,Graduate Diploma
+212,Graduate Qualifying or Preliminary,3,Graduate Diploma
+213,Professional Specialist Qualification at Graduate Diploma Level,3,Graduate Diploma
+214,Statement of Attainment at Graduate Diploma Level,3,Graduate Diploma
+215,Bridging and Enabling Course at Graduate Diploma Level,3,Graduate Diploma
+22,Graduate Certificate Level,2,Graduate Diploma
+220,Graduate Certificate Level,3,Graduate Diploma
+221,Graduate Certificate,3,Graduate Diploma
+222,Professional Specialist Qualification at Graduate Certificate Level,3,Graduate Diploma
+223,Statement of Attainment at Graduate Certificate Level,3,Graduate Diploma
+224,Bridging and Enabling Course at Graduate Certificate Level,3,Graduate Diploma
+3,BACHELOR DEGREE LEVEL,1,Bachelor Degree
+30,BACHELOR DEGREE LEVEL,2,Bachelor Degree
+300,BACHELOR DEGREE LEVEL,3,Bachelor Degree
+31,Bachelor Degree Level,2,Bachelor Degree
+310,Bachelor Degree Level,3,Bachelor Degree
+311,Bachelor (Honours) Degree,3,Bachelor Degree
+312,Bachelor (Pass) Degree,3,Bachelor Degree
+313,Statement of Attainment at Bachelor Degree Level,3,Bachelor Degree
+314,Bridging and Enabling Course at Bachelor Degree Level,3,Bachelor Degree
+4,ADVANCED DIPLOMA AND DIPLOMA LEVEL,1,Diploma
+40,ADVANCED DIPLOMA AND DIPLOMA LEVEL,2,Diploma
+400,ADVANCED DIPLOMA AND DIPLOMA LEVEL,3,Diploma
+41,Advanced Diploma and Associate Degree Level,2,Diploma
+410,Advanced Diploma and Associate Degree Level,3,Diploma
+411,Advanced Diploma,3,Diploma
+412,Statement of Attainment at Advanced Diploma Level,3,Diploma
+413,Associate Degree,3,Diploma
+414,Statement of Attainment at Associate Degree Level,3,Diploma
+415,Bridging and Enabling Course at Advanced Diploma and Associate Degree Level,3,Diploma
+42,Diploma Level,2,Diploma
+420,Diploma Level,3,Diploma
+421,Diploma,3,Diploma
+422,Statement of Attainment at Diploma Level,3,Diploma
+423,Bridging and Enabling Course at Diploma Level,3,Diploma
+5,CERTIFICATE LEVEL,1,Certificate level
+500,CERTIFICATE LEVEL,3,Certificate level
+51,Certificate III & IV Level,2,Certificate level
+510,Certificate III & IV Level,2,Certificate level
+511,Certificate IV,3,Certificate level
+512,Statement of Attainment at Certificate IV Level,3,Certificate level
+513,Bridging and Enabling Course at Certificate IV Level,3,Certificate level
+514,Certificate III,3,Certificate level
+515,Statement of Attainment at Certificate III Level,3,Certificate level
+516,Bridging and Enabling Course at Certificate III Level,3,Certificate level
+52,Certificate I & II Level,2,Certificate level
+520,Certificate I & II Level,3,Certificate level
+521,Certificate II,3,Certificate level
+522,Statement of Attainment at Certificate II Level,3,Certificate level
+523,Bridging and Enabling Course at Certificate II Level,3,Certificate level
+524,Certificate I,3,Certificate level
+525,Statement of Attainment at Certificate I Level,3,Certificate level
+6,SECONDARY EDUCATION,1,Secondary
+600,SECONDARY EDUCATION,3,Secondary
+61,Senior Secondary Education,2,Secondary
+610,Senior Secondary Education,3,Secondary
+611,Year 12,3,Secondary
+612,Bridging and Enabling Course at Senior Secondary Level,3,Secondary
+613,Year 11,3,Secondary
+62,Junior Secondary Education,2,Secondary
+621,Year 10,3,Secondary
+622,Year 9,3,Secondary
+623,Year 8,3,Secondary
+624,Year 7 (excluding SA),3,Secondary
+7,PRIMARY EDUCATION,1,Below Secondary
+71,Primary Education,2,Below Secondary
+711,Year 7 (SA),3,Below Secondary
+712,Year 6,3,Below Secondary
+713,Year 5,3,Below Secondary
+714,Year 4,3,Below Secondary
+715,Year 3,3,Below Secondary
+716,Year 2,3,Below Secondary
+717,Year 1,3,Below Secondary
+718,Pre-Year 1,3,Below Secondary
+8,PRE-PRIMARY EDUCATION,1,Below Secondary
+81,Pre-primary Education,2,Below Secondary
+811,Pre-primary Education,3,Below Secondary
+9,OTHER EDUCATION,1,Other Education
+91,Non-award Courses,2,Other Education
+911,Non-award Courses in Higher Education,3,Other Education
+912,Other Non-award Courses,3,Other Education
+99,Miscellaneous Education,2,Other Education
+991,Statements of Attainment not Identifiable by Level,3,Other Education
+992,Bridging and Enabling Courses not Identifiable by Level,3,Other Education
+999,"Education, n.e.c.",3,Other Education
+998,No education,3,No education
