@@ -48,8 +48,95 @@ p1
 
 
 # Example 2 ----
+# Example 3 ----
+# link # also check: https://otho.netlify.app/post/2019-02-02-butter-consumption/
+library(tidyverse)
+library(tibbletime)
+library(scico)
 
-## packages
+dat_path <- "_data/2-05-milk-product-facts.Rdata"
+dat_url <- paste0("https://raw.githubusercontent.com/",
+                  "rfordatascience/tidytuesday/master/data/",
+                  "2019/2019-01-29/milk_products_facts.csv")
+
+dat_milkprods <- read_csv(dat_url)
+
+# roll percent over a dataframe
+roll_percent <- rollify(.f = function(n) (n[2] - n[1])*100/n[1], 2)
+
+dat <- 
+  dat_milkprods %>%
+  select(year, butter) %>% 
+  # apply on this dataframe, on the column butter
+  mutate(percent = roll_percent(butter)) %>% 
+  filter(complete.cases(.))
+
+# a limit that centers the divergent palette
+lim <- 
+  dat$percent %>% 
+  range() %>% 
+  abs() %>% 
+  max()
+
+theme_set(
+  theme_minimal() +
+    theme(text = element_text(family = "Arial Narrow",
+                              colour = "grey40",
+                              size = 11),
+          axis.title = element_text(size = 14),
+          plot.title = element_text(colour = "grey20",
+                                    face = "bold",
+                                    size = 18),
+          plot.subtitle = element_text(face = "bold",
+                                       size = 12),
+          aspect.ratio = .6,   
+          plot.margin = margin(t = 10, r = 15, b = 0, l = 10,
+                               unit = "mm"))
+)
+p <- 
+  dat %>% 
+  mutate(yend = butter + (percent/10)) %>% 
+  ggplot(aes(x = year,
+             y = butter))
+p
+
+plt <- 
+  p +
+  # First the annotations
+  annotate(geom = "rect",
+           xmin = 2008, xmax = 2010,
+           ymin = -Inf, ymax = Inf,
+           fill = "grey80", alpha = .5) +
+  annotate(geom = "text",
+           x = 2009, y = 4,
+           label = "2008\nEconomic Crisis?",
+           family = "Arial Narrow",
+           colour = "grey40",
+           size = 3, fontface = "bold") +
+  # and then the basic geometric objects
+  geom_segment(aes(yend = yend,
+                   xend = ..x..,
+                   colour = percent),
+               size = 2,
+               arrow = arrow(length = unit(1.2, "mm"),
+                             type = "closed")) +
+  geom_point(colour = "grey40", size = 2) +
+  geom_text(aes(y = case_when(percent > 0 ~ yend + .12,
+                              TRUE ~ yend - .12),
+                label = percent %>% 
+                  round() %>% paste0("%"),
+                colour = percent),
+            size = 2.7) +
+  scale_colour_scico(palette = "roma",
+                     direction = 1,
+                     limits = c(-lim, lim),
+                     guide = FALSE)
+  
+
+plt
+
+
+## packages ----
 library(tidyverse)
 library(ggsci)
 library(showtext)
