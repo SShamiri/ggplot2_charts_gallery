@@ -30,23 +30,20 @@ package_check <- lapply(
     }
   }
 )
-## Parameters
-TEAM_DIR <- file.path('I:', 'LMAA Branch', '01_Economic_Modelling_Team')
-PROJ_DIR <- file.path(TEAM_DIR, '04_National Skills Agreement')
-DATA_in <- file.path(PROJ_DIR, '00_data')
+
 
 ## Load funtion helpers
 source('00_modules/data_utility_fn.R')
 
 ## Load data ----
 # lookup
-anzsco_df <- read_csv(file.path(DATA_in, '01_lookup','lookup_anzsco.csv')) %>% 
+anzsco_df <- read_csv(file.path('data','lookup_anzsco.csv')) %>% 
   filter(level == 1) %>% 
   rename(anzsco1_code = anzsco_code, anzsco1_name = anzsco_name) %>% 
   select(anzsco1_code, anzsco1_name)
 
 # raw data
-df_raw <- read_csv(file.path(DATA_in, '00_abs','20240412_lfs_anzsco1_sex_cleared.csv')) 
+df_raw <- read_csv(file.path('data','anzsco1_sex.csv'))
 
 ## Data Prep ----
 emp_df <- df_raw %>% 
@@ -68,23 +65,7 @@ emp_chng_tlt <- emp_df %>%
   ) %>% 
   ungroup()
 
-emp_chng_tlt %>% write_clip()
-
-emp_chng_sex <- emp_df %>% 
-  arrange(anzsco1_code, sex, date_qtr) %>%
-  group_by(anzsco1_code, sex) %>% 
-  mutate(
-    # Quarterly change
-    qtr_growth = calc_change_per(emp, dt = date_qtr, len = 1),
-    # Annual change
-    annl_growth = calc_growth(emp, dt = date_qtr, len = 4),
-    # Five year change
-    fiveyr_growth = calc_growth(emp,dt = date_qtr, len = 20),
-  ) %>%
-  ungroup() 
-
-#emp_chng_sex %>% write_clip()
-
+#emp_chng_tlt %>% write_clip()
 
 ## Plot ----
 theme_set(theme_light(base_size = 11 
